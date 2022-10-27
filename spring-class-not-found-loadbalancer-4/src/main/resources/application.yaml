@@ -1,0 +1,10 @@
+spring.cloud:
+  discovery.client.simple.instances:
+    my-feign:
+      - uri: "https://httpbin.org/"
+      - uri: "https://httpbin.org/"
+
+  loadbalancer:
+    enabled: true
+    eager-load:
+      clients: my-feign

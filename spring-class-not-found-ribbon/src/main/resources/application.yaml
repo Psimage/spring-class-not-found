@@ -1,0 +1,14 @@
+ribbon:
+  eager-load:
+    enabled: false
+    clients: my-feign
+
+my-feign:
+  ribbon:
+    listOfServers: >
+      httpbin.org,
+      httpbin.org
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
