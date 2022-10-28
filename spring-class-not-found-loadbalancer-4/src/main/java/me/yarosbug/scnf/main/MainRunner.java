@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.core.NestedExceptionUtils;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -26,20 +25,17 @@ public class MainRunner {
     @EventListener
     @Order(Ordered.LOWEST_PRECEDENCE)
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        log.info("Main thread class loader: {}", Thread.currentThread().getContextClassLoader());
+        System.err.println("Main thread class loader: " + Thread.currentThread().getContextClassLoader());
 
         var pool = new ForkJoinPool(1);
 
         var task = pool.submit(() -> {
-            log.info("FJ Pool thread class loader: " + Thread.currentThread().getContextClassLoader());
+            System.err.println("FJ Pool thread class loader: " + Thread.currentThread().getContextClassLoader());
             try {
-                log.info("Feign response: {}", myFeignClient.remoteCall("Hello"));
+                myFeignClient.remoteCall("Hello");
             } catch (Exception e) {
                 log.error("Error in forkJoinPool: {}", Thread.currentThread(), e);
-                Throwable rootCause = NestedExceptionUtils.getRootCause(e);
-                if (rootCause != null && rootCause.getClass() == ClassNotFoundException.class) {
-                    System.exit(999);
-                }
+                System.exit(999);
             }
         });
 
