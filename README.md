@@ -1,4 +1,4 @@
-[![Java CI with Maven](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml/badge.svg)](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml)
 
 # Description
 
