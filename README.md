@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml/badge.svg)](https://github.com/Psimage/spring-class-not-found/actions/workflows/maven.yml)
+
 # Description
 
 This is a minimal project that replicates an issue in Spring Cloud Loadbalancer.
