@@ -14,6 +14,7 @@
 		<module>spring-class-not-found-loadbalancer</module>
 		<module>spring-class-not-found-ribbon</module>
 		<module>spring-class-not-found-loadbalancer-4</module>
+		<module>spring-class-not-found-loadbalancer-workaround</module>
 	</modules>
 
 	<properties>
